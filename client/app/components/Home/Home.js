@@ -25,7 +25,8 @@ class Home extends Component {
     this.logOut = this.logOut.bind(this);
   }
 
-  //on load verifiees whether token is present. If not loads login page
+  /* on load verifiees whether token is present.
+   If not loads login page */
   componentDidMount() {
     this.setState({
       isLoading: true
@@ -54,19 +55,19 @@ class Home extends Component {
       });
     }
   }
-  //triggers when email textbox changes
+  /*--triggers when email textbox changes--*/
   onTextBoxChangeLoginEmail(event) {
     this.setState({
       loginEmail: event.target.value
     });
   }
-  //triggers when password textbox changes
+  /*--triggers when password textbox changes--*/
   onTextBoxChangeLoginPassword(event) {
     this.setState({
       loginPassword: event.target.value
     });
   }
-  //log out function. Clears token
+  /*--log out function. Clears token--*/
   logOut() {
     this.setState({
       isLoading: true
@@ -95,7 +96,7 @@ class Home extends Component {
       });
     }
   }
-  //login function. verifies valid login
+  /*--login function. verifies valid login--*/
   onLogIn() {
     const { loginEmail, loginPassword, userData } = this.state;
 

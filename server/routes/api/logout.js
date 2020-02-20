@@ -2,10 +2,10 @@ const User = require("../../models/User");
 const UserSession = require("../../models/UserSession");
 
 module.exports = app => {
-  //API to logout
-  //Makes User Session token invalid
+  /*----API to logout
+  Makes User Session token invalid-----*/
   app.get("/api/account/logout", (req, res, next) => {
-    //get the token and verify
+    /* get the token and verify */
     const { query } = req;
     const { token } = query;
 

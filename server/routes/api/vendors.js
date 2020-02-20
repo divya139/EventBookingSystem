@@ -1,7 +1,7 @@
 const User = require("../../models/User");
 
 module.exports = app => {
-  //API to get vendor names
+  /*-----API to get vendor names-----*/
   app.get("/api/vendor/getVendor", (req, res, next) => {
     const { query } = req;
     const { id } = query;

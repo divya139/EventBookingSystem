@@ -2,7 +2,7 @@ const Events = require("../../models/Events");
 const EventNames = require("../../models/EventNames");
 const _eventDetails = require("../../models/EventDetails");
 module.exports = app => {
-  //API to get event details
+  /* -----API to get event details-----*/
   app.get("/api/events/getDetails", (req, res, next) => {
     const { query } = req;
     const { hrId } = query;
@@ -19,7 +19,7 @@ module.exports = app => {
       });
     });
   });
-  //API to create/save new event
+  /*----API to create/save new event----*/
   app.post("/api/events/create", (req, res, next) => {
     const { body } = req;
     const {
@@ -33,8 +33,8 @@ module.exports = app => {
       hrId
     } = body;
 
-    // save the new event in database
-    //const newEventDetails = new EventDetails();
+    /*----save the new event in database----*/
+
     _eventDetails.vendorName = vendorName;
     _eventDetails.location = location;
     _eventDetails.proposedDates = proposedDates;
@@ -62,7 +62,8 @@ module.exports = app => {
       });
     });
   });
-  //API to update event status
+
+  /*----API to update event status----*/
   app.post("/api/events/updateStatus", (req, res, next) => {
     const { body } = req;
     const {
@@ -107,7 +108,8 @@ module.exports = app => {
       }
     );
   });
-  //API to get vendor events
+
+  /*----API to get vendor events----*/
   app.get("/api/events/getVendorEvents", (req, res, next) => {
     const { query } = req;
     const { vendor } = query;
@@ -124,7 +126,7 @@ module.exports = app => {
       });
     });
   });
-  //API to get event names
+  /*----API to get event names----*/
   app.get("/api/events/getEvents", (req, res, next) => {
     const { query } = req;
     const { id } = query;

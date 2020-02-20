@@ -49,7 +49,8 @@ class EventDetails extends Component {
       });
     }
   }
-  //add event
+  /*--- on add event button click.
+   calls API to POST the new event details---*/
   onAddEventClick() {
     this.setState(
       {
@@ -61,6 +62,7 @@ class EventDetails extends Component {
       }
     );
   }
+  /* to get the item index from table */
   replaceModalItem(index) {
     this.setState({
       requiredItem: index,
@@ -76,11 +78,6 @@ class EventDetails extends Component {
         modalShow: false,
         showAddEvent: false
       });
-      let buttonClick = () => {
-        this.setState({
-          isButtonClick: false
-        });
-      };
     };
     const requiredItem = this.state.requiredItem;
     return (

@@ -4,7 +4,7 @@ const UserSession = require("../../models/UserSession");
 module.exports = app => {
   /* LogIn */
 
-  //API to verify login credentials
+  /*----API to verify login credentials----*/
   app.post("/api/account/login", (req, res, next) => {
     const { body } = req;
     const { password } = body;
@@ -42,14 +42,14 @@ module.exports = app => {
           });
         }
         const user = users[0];
-        //verifying password
+        /*--verifying password--*/
         if (!user.validPassword(password)) {
           return res.send({
             success: false,
             message: "Error: Invalid User Name or Password!"
           });
         }
-        //correct user with vaild password
+        /*--correct user with vaild password--*/
         const userSession = new UserSession();
         userSession.userId = user._id;
         userSession.save((err, doc) => {
@@ -71,9 +71,9 @@ module.exports = app => {
     );
   });
 
-  //API to get token and verify
+  /*----API to get token and verify----*/
   app.get("/api/account/verify", (req, res, next) => {
-    //get the token and verify
+    /* get the token and verify */
     const { query } = req;
     const { token } = query;
 

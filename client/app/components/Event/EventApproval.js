@@ -22,14 +22,14 @@ class EventApproval extends Component {
   }
 
   componentDidMount() {}
-  //onchange remarks textbox
+  /*---onchange remarks textbox---*/
   onRemarksIn(e) {
     this.setState({
       remarks: e.target.value
     });
   }
-  //On click button Approve.
-  //will update status as Approved
+  /* on click button Approve.
+  will update status as Approved */
   onApproveEvent() {
     console.log("inside" + this.state.confirmDate);
     if (this.state.confirmDate != "") {
@@ -60,11 +60,15 @@ class EventApproval extends Component {
         });
       window.location.reload();
     } else {
-      alert("Missing!", "Please choose one of the Proposed Dates to confirm!", "warning");
+      alert(
+        "Missing!",
+        "Please choose one of the Proposed Dates to confirm!",
+        "warning"
+      );
     }
   }
-  //On click button Reject.
-  //will update status as Rejected
+  /* on click button Reject.
+  will update status as Rejected */
   onRejectEvent() {
     if (this.state.remarks != "") {
       fetch("/api/events/updateStatus", {
@@ -194,7 +198,7 @@ class EventApproval extends Component {
                       value={this.state.confirmDate}
                       onChange={this.onDateChange}
                     >
-                       <option value="">Select</option>
+                      <option value="">Select</option>
                       {this.props.viewEvent.eventDetails.proposedDates.map(
                         date => (
                           <option value={date}>{date}</option>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
+/* Modal to view the event details */
 class ViewApprovalDetails extends Component {
   constructor(props) {
     super(props);

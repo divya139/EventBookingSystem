@@ -22,6 +22,7 @@ class Register extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /*-- on input change. binds the value to state --*/
   handleChange(event) {
     const { name, value } = event.target;
     const { user } = this.state;
@@ -33,6 +34,7 @@ class Register extends React.Component {
     });
   }
 
+  /*-- on click Register button. Save the details to backend--*/
   handleSubmit(event) {
     event.preventDefault();
     this.setState({ submitted: true });

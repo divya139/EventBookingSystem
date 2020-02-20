@@ -2,7 +2,7 @@ const User = require("../../models/User");
 
 module.exports = app => {
   /* Register */
-  //API to create/save user details
+  /*----API to create/save user details----*/
   app.post("/api/account/register", (req, res, next) => {
     const { body } = req;
     const { firstName, lastName, password, role, company } = body;
@@ -56,7 +56,7 @@ module.exports = app => {
           });
         }
 
-        // save the new user
+        /*---- save the new user----*/
         const newUser = new User();
         newUser.email = email;
         newUser.firstName = firstName;

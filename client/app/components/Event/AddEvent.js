@@ -55,37 +55,37 @@ class AddEvent extends Component {
       })
       .catch(console.log);
   }
-  //on choosing one proposed date
+  /*---on choosing one proposed date---*/
   onProposedDateOneSelect(e) {
     this.setState({
       proposedDateOne: e.target.value
     });
   }
-  //on choosing two proposed date
+  /*---on choosing two proposed date---*/
   onProposedDateTwoSelect(e) {
     this.setState({
       proposedDateTwo: e.target.value
     });
   }
-  //on choosing three proposed date
+  /*---on choosing three proposed date---*/
   onProposedDateThreeSelect(e) {
     this.setState({
       proposedDateThree: e.target.value
     });
   }
-  //on vendor select from dropdown
+  /*---on vendor select from dropdown---*/
   onVendorSelect(e) {
     this.setState({
       vendorName: e.target.value
     });
   }
-  //on event select from dropdown
+  /*---on event select from dropdown---*/
   onEventSelect(e) {
     this.setState({
       eventName: e.target.value
     });
   }
-  //save event
+  /*----save event----*/
   addEvent() {
     var dates = [];
     dates.push(this.state.proposedDateOne);
@@ -137,7 +137,7 @@ class AddEvent extends Component {
       window.location.reload();
     }
   }
-  //get street name with postal code
+  /*---get street name with postal code---*/
   findAddress() {
     const postalcode = document.getElementById("address").value;
     document.getElementById("streetId").value = "Loading....";
@@ -167,11 +167,13 @@ class AddEvent extends Component {
                 ).value = this.state.streetName;
               }
             );
-          }
-          else
-          {
-            alert("Oops!","Unable to find street name.Please enter a valid street name.","error");
-            document.getElementById("streetId").value="";
+          } else {
+            alert(
+              "Oops!",
+              "Unable to find street name.Please enter a valid street name.",
+              "error"
+            );
+            document.getElementById("streetId").value = "";
           }
         });
     } else {
