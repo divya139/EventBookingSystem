@@ -40,7 +40,6 @@ class Register extends React.Component {
     this.setState({ submitted: true });
     const { user } = this.state;
     if (user.firstName && user.lastName && user.email && user.password) {
-      console.log("inside");
       fetch("/api/account/register", {
         method: "POST",
         headers: {

@@ -28,7 +28,6 @@ class EventDetails extends Component {
       fetch("http://localhost:8080/api/events/getVendorEvents?vendor=" + vendor)
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           this.setState({ events: data.data });
         })
         .catch(console.log);
@@ -40,7 +39,6 @@ class EventDetails extends Component {
       fetch("http://localhost:8080/api/events/getDetails?hrId=" + id)
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           this.setState({ events: data.data });
         })
         .catch(console.log);
@@ -52,15 +50,10 @@ class EventDetails extends Component {
   /*--- on add event button click.
    calls API to POST the new event details---*/
   onAddEventClick() {
-    this.setState(
-      {
-        isAddEventClick: true,
-        showAddEvent: true
-      },
-      () => {
-        console.log("click" + this.state.isAddEventClick);
-      }
-    );
+    this.setState({
+      isAddEventClick: true,
+      showAddEvent: true
+    });
   }
   /* to get the item index from table */
   replaceModalItem(index) {

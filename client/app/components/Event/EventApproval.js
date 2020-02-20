@@ -31,7 +31,6 @@ class EventApproval extends Component {
   /* on click button Approve.
   will update status as Approved */
   onApproveEvent() {
-    console.log("inside" + this.state.confirmDate);
     if (this.state.confirmDate != "") {
       fetch("/api/events/updateStatus", {
         method: "POST",

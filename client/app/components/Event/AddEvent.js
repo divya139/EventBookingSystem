@@ -43,14 +43,12 @@ class AddEvent extends Component {
     fetch("http://localhost:8080/api/events/getEvents")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({ events: data.data });
       })
       .catch(console.log);
     fetch("http://localhost:8080/api/vendor/getVendor")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({ vendorNames: data.data });
       })
       .catch(console.log);
@@ -105,13 +103,6 @@ class AddEvent extends Component {
       status: STATUS.PENDING,
       hrId: this.state.hrId
     };
-    console.log(
-      "details" +
-        eventDetails.eventName +
-        eventDetails.location +
-        eventDetails.vendorName +
-        eventDetails.proposedDates.length
-    );
     if (
       eventDetails.eventName != "" &&
       eventDetails.location != "" &&
@@ -146,7 +137,6 @@ class AddEvent extends Component {
       data.append("APIKey", APIKey);
       data.append("APISecret", APISecure);
       data.append("Postcode", postalcode);
-      console.log("inside");
       fetch(PROXY_URL + LOCATION_URL, {
         method: "POST",
         headers: {

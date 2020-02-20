@@ -8,7 +8,6 @@ module.exports = app => {
   app.post("/api/account/login", (req, res, next) => {
     const { body } = req;
     const { password } = body;
-    console.log(body);
     let { email } = body;
     if (!email) {
       return res.send({
