@@ -142,7 +142,6 @@ class Home extends Component {
       loginPassword
     } = this.state;
     const obj = getFromStorage("the_user_details");
-    console.log("userDetais" + obj.userData.role);
     if (isLoading) {
       return (
         <div>
