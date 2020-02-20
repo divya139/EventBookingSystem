@@ -40,13 +40,13 @@ class AddEvent extends Component {
       companyName: obj.userData.company,
       hrId: obj.userData._id
     });
-    fetch("http://localhost:8080/api/events/getEvents")
+    fetch("/api/events/getEvents")
       .then(res => res.json())
       .then(data => {
         this.setState({ events: data.data });
       })
       .catch(console.log);
-    fetch("http://localhost:8080/api/vendor/getVendor")
+    fetch("/api/vendor/getVendor")
       .then(res => res.json())
       .then(data => {
         this.setState({ vendorNames: data.data });

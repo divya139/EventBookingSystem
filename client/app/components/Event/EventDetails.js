@@ -25,7 +25,7 @@ class EventDetails extends Component {
     const vendor = this.props.user.company;
     const role = this.props.user.role;
     if (role == "vendor_admin") {
-      fetch("http://localhost:8080/api/events/getVendorEvents?vendor=" + vendor)
+      fetch("/api/events/getVendorEvents?vendor=" + vendor)
         .then(res => res.json())
         .then(data => {
           this.setState({ events: data.data });
@@ -36,7 +36,7 @@ class EventDetails extends Component {
       });
     } else if (role == "hr_admin") {
       const id = this.props.user._id;
-      fetch("http://localhost:8080/api/events/getDetails?hrId=" + id)
+      fetch("/api/events/getDetails?hrId=" + id)
         .then(res => res.json())
         .then(data => {
           this.setState({ events: data.data });
