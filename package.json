@@ -1,13 +1,13 @@
 {
   "name": "EventBookingSystem",
   "version": "1.0.0",
-  "description": "MERN Event Managment project",
+  "description": "Event Managment project",
   "author": "Divya Jyothi",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/divya139/EventBookingSystem.git"
   },
-  "license": "MIT",
+  "license": "divyajyothi",
   "private": true,
   "scripts": {
     "start": "webpack -p --progress --profile --colors && node server",
