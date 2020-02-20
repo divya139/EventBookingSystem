@@ -171,7 +171,7 @@ class Home extends Component {
                 for="email"
                 style={{ fontFamily: "Arial", color: "white" }}
               >
-                Email address
+                Email address/User name
               </label>
               <input
                 type="email"

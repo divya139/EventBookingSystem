@@ -111,7 +111,6 @@ module.exports = app => {
   app.get("/api/events/getVendorEvents", (req, res, next) => {
     const { query } = req;
     const { vendor } = query;
-    console.log(vendor);
     Events.find({ "eventDetails.vendorName": vendor }, (err, result) => {
       if (err) {
         return res.send({
