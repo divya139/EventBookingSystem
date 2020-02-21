@@ -11,7 +11,7 @@ class AddEvent extends Component {
     super(props);
 
     this.state = {
-      postalCode: "658071",
+      postalCode: "",
       companyName: "",
       events: [],
       vendorNames: [],
@@ -32,9 +32,11 @@ class AddEvent extends Component {
     this.onProposedDateOneSelect = this.onProposedDateOneSelect.bind(this);
     this.onProposedDateTwoSelect = this.onProposedDateTwoSelect.bind(this);
     this.onProposedDateThreeSelect = this.onProposedDateThreeSelect.bind(this);
+
   }
 
   componentDidMount() {
+ 
     const obj = getFromStorage("the_user_details");
     this.setState({
       companyName: obj.userData.company,
@@ -55,21 +57,55 @@ class AddEvent extends Component {
   }
   /*---on choosing one proposed date---*/
   onProposedDateOneSelect(e) {
-    this.setState({
-      proposedDateOne: e.target.value
-    });
+    if (
+      e.target.value == this.state.proposedDateTwo ||
+      e.target.value == this.state.proposedDateThree
+    ) {
+      this.setState({
+        proposedDateOne: ""
+      });
+      document.getElementById("proposedDateId1").value = "";
+      alert("Please select unique proposed dates!", "", "warning");
+    } else {
+      this.setState({
+        proposedDateOne: e.target.value
+      });
+    }
   }
   /*---on choosing two proposed date---*/
   onProposedDateTwoSelect(e) {
-    this.setState({
-      proposedDateTwo: e.target.value
-    });
+    if (
+      e.target.value == this.state.proposedDateOne ||
+      e.target.value == this.state.proposedDateThree
+    ) {
+      this.setState({
+        proposedDateTwo: ""
+      });
+      document.getElementById("proposedDateId2").value = "";
+      alert("Please select unique proposed dates!", "", "warning");
+    } else {
+      this.setState({
+        proposedDateTwo: e.target.value
+      });
+    }
   }
+
   /*---on choosing three proposed date---*/
   onProposedDateThreeSelect(e) {
-    this.setState({
-      proposedDateThree: e.target.value
-    });
+    if (
+      e.target.value == this.state.proposedDateOne ||
+      e.target.value == this.state.proposedDateTwo
+    ) {
+      this.setState({
+        proposedDateThree: ""
+      });
+      document.getElementById("proposedDateId3").value = "";
+      alert("Please select unique proposed dates!", "", "warning");
+    } else {
+      this.setState({
+        proposedDateThree: e.target.value
+      });
+    }
   }
   /*---on vendor select from dropdown---*/
   onVendorSelect(e) {
@@ -86,9 +122,15 @@ class AddEvent extends Component {
   /*----save event----*/
   addEvent() {
     var dates = [];
-    dates.push(this.state.proposedDateOne);
-    dates.push(this.state.proposedDateTwo);
-    dates.push(this.state.proposedDateThree);
+    if (
+      this.state.proposedDateOne != "" &&
+      this.state.proposedDateTwo != "" &&
+      this.state.proposedDateThree != ""
+    ) {
+      dates.push(this.state.proposedDateOne);
+      dates.push(this.state.proposedDateTwo);
+      dates.push(this.state.proposedDateThree);
+    }
 
     this.setState({
       addEvent: true
@@ -172,7 +214,6 @@ class AddEvent extends Component {
   }
   render() {
     const { postalCode, companyName } = this.state;
-
     return (
       <Modal
         {...this.props}
